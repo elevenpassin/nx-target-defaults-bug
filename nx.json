@@ -18,6 +18,12 @@
     "sharedGlobals": []
   },
   "targetDefaults": {
+    "build": {
+      "inputs": [
+        "{projectRoot}/**/*.ts",
+        "!{projectRoot}/dont-include-this-folder/**/*.ts"
+      ]
+    },
     "@nx/eslint:lint": {
       "cache": true,
       "executor": "@nx/eslint:lint",
