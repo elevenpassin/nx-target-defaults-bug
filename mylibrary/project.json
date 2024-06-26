@@ -1,0 +1,49 @@
+{
+  "name": "mylibrary",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "mylibrary/src",
+  "projectType": "library",
+  "release": {
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist\\{projectRoot}",
+        "currentVersionResolver": "git-tag"
+      }
+    }
+  },
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/mylibrary",
+        "tsConfig": "mylibrary/tsconfig.lib.json",
+        "packageJson": "mylibrary/package.json",
+        "main": "mylibrary/src/index.ts",
+        "assets": [
+          "mylibrary/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "mylibrary/**/*.{ts,js}",
+          "mylibrary/package.json"
+        ]
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist\\{projectRoot}"
+      }
+    }
+  }
+}
