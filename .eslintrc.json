@@ -66,11 +66,17 @@
     },
     {
       "files": [
-        "*.json"
+        "**/package.json"
       ],
       "parser": "jsonc-eslint-parser",
       "rules": {
-        "@nx/dependency-checks": "error"
+        "@nx/nx-plugin-checks": "error",
+        "@nx/dependency-checks": [
+          "error",
+          {
+            "includeTransitiveDependencies": true
+          }
+        ]
       }
     }
   ]

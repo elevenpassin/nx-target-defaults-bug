@@ -18,6 +18,18 @@
     "sharedGlobals": []
   },
   "targetDefaults": {
+    "@nx/eslint:lint": {
+      "cache": true,
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "default"
+        ]
+      }
+    },
     "@nx/esbuild:esbuild": {
       "cache": true,
       "dependsOn": [
